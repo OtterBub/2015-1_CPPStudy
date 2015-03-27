@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GameFrame.cpp">
+      <Filter>Class\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="OtterVector.cpp">
+      <Filter>Class\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplaySys.cpp">
+      <Filter>Class\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateTestState.cpp">
+      <Filter>Class\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="Utill.cpp" />
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Class\GameObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Class">
+      <UniqueIdentifier>{07377d63-1e4b-4ae0-b3e3-cf7aa6b896b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Frame">
+      <UniqueIdentifier>{93e9b27a-bf5f-4be1-9bff-03a76da60f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\System">
+      <UniqueIdentifier>{377338bb-0e10-4833-85d8-a4c3b8e4ff34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\NewType">
+      <UniqueIdentifier>{de59f8af-5ecb-4f66-8771-47d08bf2ec64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\GameState">
+      <UniqueIdentifier>{e73e2e50-662e-42f2-8755-b21014d83cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\GameObject">
+      <UniqueIdentifier>{e42a4891-56f1-43fa-8f32-47b5e7ba30e8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameFrame.h">
+      <Filter>Class\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplaySys.h">
+      <Filter>Class\System</Filter>
+    </ClInclude>
+    <ClInclude Include="OtterVector.h">
+      <Filter>Class\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Class\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateTestState.h">
+      <Filter>Class\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="Utill.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>Class\GameObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
