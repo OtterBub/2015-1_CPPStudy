@@ -1,10 +1,7 @@
 ﻿  DisplaySys.cpp
-  GameFrame.cpp
-  GameObject.cpp
   GameStateTestState.cpp
-  main.cpp
   OtterVector.cpp
-  Utill.cpp
+  main.cpp
   Generating code
   Finished generating code
   Testris.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\CPPStudy\Example\Testris\Release\Testris.exe
