@@ -1,69 +1,55 @@
 #include <iostream>
 #include <string>
-
-class Position
-{
-public:
-	Position( const Position& other )
-	{
-
-	}
-
-	Position( float x, float y, float size )
-	{
-		std::cout << "Constructor" << std::endl;
-		this->x = x;
-		this->y = y;
-
-		mpSize = new float(size);
-	}
-
-	~Position()
-	{
-		std::cout << "Destructor" << std::endl;
-		
-		if( mpSize != nullptr )
-			delete mpSize;
-	}
-
-	void PrintPosition()
-	{
-		std::cout << x << ", " << y << std::endl;
-	}
-
-	
-private:
-	float x, y;
-	float* mpSize;
-};
-
-void func()
-{
-	std::cout << "func Enter" << std::endl;
-	Position pos( 10, 10, rand() );
-
-	std::cout << "func Exit" << std::endl;
-}
+#include <Windows.h>
+#include "Character.h"
 
 int main()
 {
-	int width = 30, height = 30;
-
-	std::string str[ 50 ];
-	
-	for( int i = 0; i < height; ++i )
-		str[i].resize( width );
+	// Initialize
+	const int width = 30, height = 30;
+	std::string map[width * height];
 
 	for( int i = 0; i < height; ++i )
+		map[i].resize( width );
+
+	Character lChar;
+
+	lChar.SetPosition( Position( 10, 1 ) );
+	lChar.SetModel( 'A' );
+
+	// GameLoop
+	while( 1 )
 	{
-		for( int j = 0; j < width; ++j )
+		// Map Display Claer
+		for( int i = 0; i < height; ++i )
 		{
-			str[i][j] = '.';
+			for( int j = 0; j < width; ++j )
+			{
+				map[i][j] = '.';
+			}
 		}
-	}
 
-	for( int i = 0; i < height; ++i )
-		std::cout << str[i] << std::endl;
+		// Game Algorithm
+		if( ( GetAsyncKeyState( VK_DOWN ) & 0x8000 ) == 0x8000 )
+			lChar.Translate( 0, 1 );
+		if( ( GetAsyncKeyState( VK_UP ) & 0x8000 ) == 0x8000 )
+			lChar.Translate( 0, -1 );
+		if( ( GetAsyncKeyState( VK_RIGHT ) & 0x8000 ) == 0x8000 )
+			lChar.Translate( 1, 0 );
+		if( ( GetAsyncKeyState( VK_LEFT ) & 0x8000 ) == 0x8000 )
+			lChar.Translate( -1, 0 );
+
+		Position lCharPosition = lChar.GetPosition();
+		map[lCharPosition.y][lCharPosition.x] = lChar.GetModel();
+
+		// Draw Game
+		for( int i = 0; i < height; ++i )
+			std::cout << map[i] << std::endl;
+		
+		std::cout << std::endl;
+
+		Sleep( 30 );
+	}
 
 	return 0;
 }
