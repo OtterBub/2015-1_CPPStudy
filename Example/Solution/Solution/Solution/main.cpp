@@ -1,12 +1,16 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <ctime>
 #include "Character.h"
 
 int main()
 {
 	// Initialize
 	const int width = 30, height = 30;
+	const int moveTime = 1000;
+	int CurrentTime = std::clock();
+	int PlayTime = CurrentTime;
 	std::string map[width * height];
 
 	for( int i = 0; i < height; ++i )
@@ -20,13 +24,21 @@ int main()
 	// GameLoop
 	while( 1 )
 	{
+		COORD pos = { 0, };
+		SetConsoleCursorPosition( GetStdHandle(STD_OUTPUT_HANDLE), pos );
+
 		// Map Display Claer
-		for( int i = 0; i < height; ++i )
-		{
-			for( int j = 0; j < width; ++j )
-			{
+		for( int i = 0; i < height; ++i ) {
+			for( int j = 0; j < width; ++j ) {
 				map[i][j] = '.';
 			}
+		}
+		
+		CurrentTime = std::clock();
+
+		if( moveTime < ( CurrentTime - PlayTime ) ){
+			lChar.Translate( 0, 1 );
+			PlayTime = std::clock();
 		}
 
 		// Game Algorithm
