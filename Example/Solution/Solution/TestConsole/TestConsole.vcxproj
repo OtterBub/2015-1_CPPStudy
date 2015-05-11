@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ACBCF6DD-4A86-49B5-BC84-7A663EEE2FD0}</ProjectGuid>
+    <ProjectGuid>{28C4C3D1-1BF4-492C-9D88-29F94099F973}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Solution</RootNamespace>
+    <RootNamespace>TestConsole</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -77,10 +77,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

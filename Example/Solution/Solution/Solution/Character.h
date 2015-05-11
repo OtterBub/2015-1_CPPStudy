@@ -1,29 +1,4 @@
-
-class Position
-{
-public:
-
-	Position( const Position& other )
-	{
-		this->x = other.x;
-		this->y = other.y;
-	}
-
-	Position()
-	{
-		x = 0;
-		y = 0;
-	}
-
-	Position( int x, int y )
-	{
-		this->x = x;
-		this->y = y;
-	}
-
-public:
-	int x, y;
-};
+#include "Position.h"
 
 class Character
 {
@@ -41,6 +16,10 @@ public:
 	void SetModel( char model )
 	{
 		mModel = model;
+	}
+	void Translate( Position trans ) 
+	{
+		mPos += trans;
 	}
 	void Translate( int x, int y )
 	{
@@ -60,4 +39,5 @@ public:
 private:
 	Position mPos;
 	char mModel;
+
 };

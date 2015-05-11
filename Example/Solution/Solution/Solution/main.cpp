@@ -8,9 +8,9 @@ int main()
 {
 	// Initialize
 	const int width = 30, height = 30;
-	const int moveTime = 1000;
-	int CurrentTime = std::clock();
-	int PlayTime = CurrentTime;
+	//const int moveTime = 1000;
+	//int CurrentTime = std::clock();
+	//int PlayTime = CurrentTime;
 	std::string map[width * height];
 
 	for( int i = 0; i < height; ++i )
@@ -34,22 +34,26 @@ int main()
 			}
 		}
 		
-		CurrentTime = std::clock();
+		//CurrentTime = std::clock();
 
-		if( moveTime < ( CurrentTime - PlayTime ) ){
+		/*if( moveTime < ( CurrentTime - PlayTime ) ){
 			lChar.Translate( 0, 1 );
 			PlayTime = std::clock();
-		}
+		}*/
 
 		// Game Algorithm
+		Position move;
+
 		if( ( GetAsyncKeyState( VK_DOWN ) & 0x8000 ) == 0x8000 )
-			lChar.Translate( 0, 1 );
+			move.y = 1;
 		if( ( GetAsyncKeyState( VK_UP ) & 0x8000 ) == 0x8000 )
-			lChar.Translate( 0, -1 );
+			move.y = -1;
 		if( ( GetAsyncKeyState( VK_RIGHT ) & 0x8000 ) == 0x8000 )
-			lChar.Translate( 1, 0 );
+			move.x = 1;
 		if( ( GetAsyncKeyState( VK_LEFT ) & 0x8000 ) == 0x8000 )
-			lChar.Translate( -1, 0 );
+			move.x = -1;
+
+		lChar.Translate( move );
 
 		Position lCharPosition = lChar.GetPosition();
 		map[lCharPosition.y][lCharPosition.x] = lChar.GetModel();
